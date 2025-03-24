@@ -28,6 +28,6 @@
 #include <stdlib.h>
 #include <string.h>*/
 
-void decryptage(char message[], int clef){
+void dechiffrementCesar(char message[], int cle){
     return message;
 }
