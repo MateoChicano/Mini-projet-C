@@ -23,17 +23,3 @@
 *  Nom du fichier :  dechiffrement                                                         *
 *                                                                             *
 ******************************************************************************/
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#define TAILLE_MAX 1000
-#define ALPHABET "abcdefghijklmnopqrstuvwxyz"
-
-void dechiffrementCesar(char message[], int cle){
-    char message[TAILLE_MAX];
-    int i;
-    for (i =0, strlen(message))
-
-}
