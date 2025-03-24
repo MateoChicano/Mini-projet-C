@@ -24,9 +24,9 @@
 *                                                                             *
 ******************************************************************************/
 
-/*#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>*/
+#include <string.h>
 
 void dechiffrementCesar(char message[], int cle){
     return message;
