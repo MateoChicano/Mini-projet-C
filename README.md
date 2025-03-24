@@ -22,6 +22,7 @@ Le fichier chiffrement.c contient les fonctions suivantes :
 char* chiffrementCesar(char* message, int cle)
   - Paramètres : le message à chiffrer et la clé de chiffrement
   - Renvoie : le message chiffré grâce à l'algorithme César
+
 char* chiffrementVigenere(char* message, int cle)
   - Paramètres : le message à chiffrer et la clé de chiffrement
   - Renvoie : le message chiffré grâce à l'algorithme Vigenère
@@ -31,6 +32,7 @@ Le fichier dechiffrement.c contient les fonctions suivantes :
 char* dechiffrementCesar(char* message, char* cle)
   - Paramètres : le message à déchiffrer et la clé de chiffrement utilisée pour le chiffrer
   - Renvoie : le message déchiffré grâce à l'algorithme César
+
 char* dechiffrementVigenere(char* message, char* cle)
   - Paramètres : le message à déchiffrer et la clé de chiffrement utilisée pour le chiffrer
   - Renvoie : le message déchiffré grâce à l'algorithme Vigenère
