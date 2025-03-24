@@ -23,11 +23,3 @@
 *  Nom du fichier :  dechiffrement                                                         *
 *                                                                             *
 ******************************************************************************/
-
-/*#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>*/
-
-void decryptage(char message[], int clef){
-    return message;
-}
