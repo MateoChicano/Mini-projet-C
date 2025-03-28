@@ -44,9 +44,9 @@ int main(int argc, char const *argv[])
 
 void chiffrementCesar(char message[], int cle, char messageDechiffre[]) {
     for (int i=0; i<strlen(message); i++) {
-        if (isIn(message[i], aGarder, 5)) {
+        if (isIn(message[i], aGarder, 5) == 0) {
             char nouveauCaractere = message[i] + cle;
-            messageDechiffre[i] = message[i] + cle;
+            messageDechiffre[i] = (message[i] + cle)%122;
         } else {
             // Les espaces sont écrits tel quel
             messageDechiffre[i] = message[i];
