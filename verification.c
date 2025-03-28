@@ -35,7 +35,6 @@
 #include <string.h>
 #include "verification.h"
 #include "misc.c"
-#include "misc.h"
 
 #define TAILLE_MAX 1000 //taille max de la chaîne de caractère
 
@@ -54,7 +53,8 @@ void verification (char message[]) {
     const int aGarder[5] = {32, 33, 44, 46, 63};
 
     for (i; i < strlen(message); i++) { 
-        if (message[i] < 65 || message[i] > 90 && message[i] < 97 || message[i] > 122) && (message[i]  aGarder) { //on vérifie si le caractère est un caractère spécial
+
+        if (message[i] < 65 || message[i] > 90 && message[i] < 97 || message[i] > 122) && isIn(message[i], aGarder, strlen(message)){
             printf("Erreur : caractère spécial détecté\n");
         } else {
             messageVerifie[i] = message[i]; //on copie le caractère dans la chaîne de caractère valide
