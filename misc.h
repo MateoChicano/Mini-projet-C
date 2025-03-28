@@ -1,0 +1,1 @@
+int isIn(int n, int* liste, int longueur);
