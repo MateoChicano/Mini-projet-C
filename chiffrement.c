@@ -45,7 +45,7 @@ int main(int argc, char const *argv[])
 et le message une fois chiffré.*/
 void chiffrementCesar(char message[], int cle, char messageChiffre[]) {
     int i = 0;
-    for (i; i<strlen(message); i++) {
+    for (i; i<strlen(message); i++) {g
         char caractere = message[i];
         if (isIn(caractere, aGarder, 5) == 0) {
             if (caractere >= 'A' && caractere <= 'Z') {
