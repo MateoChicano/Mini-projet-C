@@ -37,29 +37,23 @@
 #include "misc.c"
 
 #define TAILLE_MAX 1000 //taille max de la chaîne de caractère
+int aGarder[5] = {32, 33, 44, 46, 63};
 
 void main () {
     char message[TAILLE_MAX];
     printf("Entrez le message à vérifier : ");
     fgets(message, TAILLE_MAX, stdin);//On entre un message
     message[strcspn(message, "\n")] = 0; //On enlève le retour à la ligne
-    verification(message);
+    printf("%d\n", verification(message));
 }
 
-void verification (char message[]) {
-
-    char messageVerifie[TAILLE_MAX];
-    int i = 0;
-    const int aGarder[5] = {32, 33, 44, 46, 63};
-
-    for (i; i < strlen(message); i++) { 
-
-        if (message[i] < 65 || message[i] > 90 && message[i] < 97 || message[i] > 122) && isIn(message[i], aGarder, strlen(message)){
-            printf("Erreur : caractère spécial détecté\n");
-        } else {
-            messageVerifie[i] = message[i]; //on copie le caractère dans la chaîne de caractère valide
-            printf("Caractère %c valide\n", message[i]);
+/* Fonction de vérification de la validité du message entré par l'utilisateur. Prend en argument
+le message et renvoie 0 si le message contient un caractère spécial, 1 sinon.*/
+int verification (char message[]) {
+    for (int i=0; i < strlen(message); i++) { 
+        if ((message[i] < 65 || message[i] > 90 && message[i] < 97 || message[i] > 122) && !(isIn(message[i], aGarder, strlen(message)))) {
+            return 0;
         }
     }
-    printf("message véridié : %s\n", messageVerifie); //on affiche la chaîne de caractère valide
+    return 1;
 }

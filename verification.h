@@ -1,1 +1,1 @@
-void verification (char message[]);
+int verification (char message[]);
