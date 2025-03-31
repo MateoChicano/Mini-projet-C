@@ -46,7 +46,7 @@ et le message une fois chiffré.*/
 void chiffrementCesar(char message[], int cle, char messageChiffre[]) {
     strcpy(messageChiffre, "");
     int i = 0;
-    for (i; i<strlen(message); i++) {
+    for (i; i<strlen(message); i++) {g
         char caractere = message[i];
         if (isIn(caractere, aGarder, 5) == 0) {
             if (caractere >= 'A' && caractere <= 'Z') {
