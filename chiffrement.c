@@ -35,15 +35,16 @@ int aGarder[5] = {32, 33, 44, 46, 63}; // ponctuation et espace
 
 int main(int argc, char const *argv[])
 {
-    char message[TAILLE_MAX] = "Lucas Recanz";
+    char message[TAILLE_MAX] = "Lucas Recanz.";
     char messageChiffre[TAILLE_MAX];
-    chiffrementCesar(message, 30, messageChiffre);
+    chiffrementVigenere(message, "yahou", messageChiffre);
     printf("%s\n", messageChiffre);
     return 0;
 }
 /* Fonction de chiffrement César qui prend en argument le message à chiffrer, la clé de chiffrement
 et le message une fois chiffré.*/
 void chiffrementCesar(char message[], int cle, char messageChiffre[]) {
+    strcpy(messageChiffre, "");
     int i = 0;
     for (i; i<strlen(message); i++) {
         char caractere = message[i];
@@ -61,6 +62,17 @@ void chiffrementCesar(char message[], int cle, char messageChiffre[]) {
     messageChiffre[i] = '\0';
 }
 
-void chiffrementVigenere(char message[], char cle[], char messageDechiffre[]) {
-    // à faire
+void chiffrementVigenere(char message[], char cle[], char messageChiffre[]) {
+    // converti chaque lettre en une clé et appeler cesar pour chaque caractère ?
+    int i = 0;
+    for (i; i<strlen(message); i++) {
+        char caractere[TAILLE_MAX];
+        strcpy(caractere, message);
+        char nouveauCaractere[1] = "";
+        int nvCle = tolower(cle[i % strlen(cle)]) - 96;
+        printf("%d\n", nvCle);
+        chiffrementCesar(caractere, nvCle, nouveauCaractere);
+        strcat(messageChiffre, nouveauCaractere);
+    }
+    messageChiffre[i] = '\0';
 }
