@@ -10,9 +10,9 @@
 *                                                                             *
 *******************************************************************************
 *                                                                             *
-*  Nom-prénom1 : Récan Lucas                                                  *
+*  Nom-prénom1 : Chicano-Quéralta Matéo                                       *
 *                                                                             *
-*  Nom-prénom2 :Chicano-Quéralta Matéo                                        *
+*  Nom-prénom2 : Récan Lucas                                                  *
 *                                                                             *
 *  Nom-prénom3 :                                                              *
 *                                                                             *
@@ -20,47 +20,38 @@
 *                                                                             *
 *******************************************************************************
 *                                                                             *
-*  Nom du fichier :  dechiffrement                                                         *
+*  Nom du fichier : chiffrement.c                                             *
 *                                                                             *
 ******************************************************************************/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <ctype.h>
 #define TAILLE_MAX 1000
-#define ALPHABET "abcdefghijklmnopqrstuvwxyz"
+#include "chiffrement.h"
+#include "misc.c"
 
-void main () {
-    char message[TAILLE_MAX];
-    printf("Entrez le message à déchiffrer : ");
-    fgets(message, TAILLE_MAX, stdin);//On entre un message
-    printf("%d\n", verification(message));
-    if (verification(message) == 0) {
-        perror("Erreur : Le message contient un caractère spécial\n");
-        exit(1);
-    } else {
-        dechiffrementCesar(message, cle, messageDechiffre);
-    } 
-    
+int aGarder[5] = {32, 33, 44, 46, 63}; // ponctuation et espace
 
+int main(int argc, char const *argv[])
+{
+    char message[TAILLE_MAX] = "Lucas Recanz";
+    char messageChiffre[TAILLE_MAX];
+    chiffrementCesar(message, 30, messageChiffre);
+    printf("%s\n", messageChiffre);
+    return 0;
 }
-void chiffrementCesar(char message[], int cle, char messageDechiffre[]) {
-    for (int i=0; i<strlen(message); i++) {
-        if (isIn(message[i], aGarder, 5) == 0) {
-            char nouveauCaractere = message[i] - cle;
-            messageDechiffre[i] = (message[i] - cle)%122;
-        } else {
-            // Les espaces sont écrits tel quel
-            messageDechiffre[i] = message[i];
+/* Fonction de chiffrement César qui prend en argument le message à chiffrer, la clé de chiffrement
+et le message une fois chiffré.*/
+void chiffrementCesar(char message[], int cle, char messageChiffre[]) {
+    int i =0;
+    for (i; i<strlen(message); i++) {
+        char caractere = message[i];
+        if (message[i] >= 'A' && message[i] <= 'Z') {
+            
         }
-    }
 }
 
 void chiffrementVigenere(char message[], char cle[], char messageDechiffre[]) {
-    for (int i=0; i<strlen(message); i++) {
-        if (!messageDechiffre[i] == 32) {
-            messageDechiffre[i] = message[i] + cle[i%strlen(cle)];
-        }
-    }
+    // à faire
 }
