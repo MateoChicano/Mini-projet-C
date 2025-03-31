@@ -29,35 +29,38 @@
 #include <ctype.h>
 #define TAILLE_MAX 1000
 #include "chiffrement.h"
-#include "misc.h"
+#include "misc.c"
 
-const int aGarder[5] = {32, 33, 44, 46, 63}; // ponctuation et espace
+int aGarder[5] = {32, 33, 44, 46, 63}; // ponctuation et espace
 
 int main(int argc, char const *argv[])
 {
-    char message[TAILLE_MAX] = "Lucas Recan";
-    char messageDechiffre[TAILLE_MAX];
-    chiffrementCesar(message, 1231, messageDechiffre);
-    printf("%s\n", messageDechiffre);
+    char message[TAILLE_MAX] = "Lucas Recanz";
+    char messageChiffre[TAILLE_MAX];
+    chiffrementCesar(message, 30, messageChiffre);
+    printf("%s\n", messageChiffre);
     return 0;
 }
-
-void chiffrementCesar(char message[], int cle, char messageDechiffre[]) {
-    for (int i=0; i<strlen(message); i++) {
-        if (isIn(message[i], aGarder, 5) == 0) {
-            char nouveauCaractere = message[i] + cle;
-            messageDechiffre[i] = (message[i] + cle)%122;
+/* Fonction de chiffrement César qui prend en argument le message à chiffrer, la clé de chiffrement
+et le message une fois chiffré.*/
+void chiffrementCesar(char message[], int cle, char messageChiffre[]) {
+    int i = 0;
+    for (i; i<strlen(message); i++) {
+        char caractere = message[i];
+        if (isIn(caractere, aGarder, 5) == 0) {
+            if (caractere >= 'A' && caractere <= 'Z') {
+                messageChiffre[i] = 'A' + (caractere - 'A' + cle) % 26;
+            } else if (caractere >= 'a' && caractere <= 'z') {
+                messageChiffre[i] = 'a' + (caractere - 'a' + cle) % 26;
+            }
         } else {
-            // Les espaces sont écrits tel quel
-            messageDechiffre[i] = message[i];
+            // Les espaces et la ponctuation sont écrits tels quels
+            messageChiffre[i] = caractere;
         }
     }
+    messageChiffre[i] = '\0';
 }
 
 void chiffrementVigenere(char message[], char cle[], char messageDechiffre[]) {
-    for (int i=0; i<strlen(message); i++) {
-        if (!messageDechiffre[i] == 32) {
-            messageDechiffre[i] = message[i] + cle[i%strlen(cle)];
-        }
-    }
+    // à faire
 }
