@@ -12,7 +12,7 @@
 *                                                                             *
 *  Nom-prénom1 : Récan Lucas                                                  *
 *                                                                             *
-*  Nom-prénom2 :Chicano-Quéralta Matéo                                        *
+*  Nom-prénom2 : Chicano-Quéralta Matéo                                        *
 *                                                                             *
 *  Nom-prénom3 :                                                              *
 *                                                                             *
