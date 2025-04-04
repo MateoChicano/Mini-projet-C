@@ -1,28 +1,34 @@
 # Nom de l'exécutable
 EXEC = main
 
+# Dossiers
+SRC_DIR = src
+INC_DIR = include
+OBJ_DIR = build
+
 # Liste des fichiers sources
-SRC = main.c chiffrement.c dechiffrement.c misc.c verification.c
+SRC = $(wildcard $(SRC_DIR)/*.c)
 
 # Fichiers objets correspondants
-OBJ = $(SRC:.c=.o)
+OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 
 # Compilateur et options
 # CC = gcc
 # CFLAGS = -Wall -Wextra -std=c11
 
-# Règle par défaut
+
+# Règle principale
 all: $(EXEC)
 
-# Règle de l'
-# $(CC) $(CFLAGS) -o $@ $^
+# Exécutable
 $(EXEC): $(OBJ)
-	gcc -o $@ $^
-# Règle de compilation des fichiers .c en .o
-# $(CC) $(CFLAGS) -c $< -o $@
-%.o: %.c
-	gcc -c $< -o $@
+	gcc -I$(INC_DIR) -o $@ $^
 
-# Nettoyage des fichiers objets et de l'exécutable
+# Compilation des .c en .o
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	gcc -I$(INC_DIR) -c $< -o $@
+
+# Nettoyage
 clean:
-	rm -f *.o $(EXEC)
+	rm -rf $(OBJ_DIR)
