@@ -35,7 +35,7 @@ int aGarder[5] = {32, 33, 44, 46, 63}; // ponctuation et espace
 
 int main(int argc, char const *argv[])
 {
-    char message[TAILLE_MAX] = "Lucas Recanz.";
+    char message[TAILLE_MAX];// = "Lucas Recanz.";
     char messageChiffre[TAILLE_MAX];
     chiffrementVigenere(message, "yahou", messageChiffre);
     printf("%s\n", messageChiffre);

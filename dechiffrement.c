@@ -38,7 +38,7 @@ int aGarder[5] = {32, 33, 44, 46, 63}; // ponctuation et espace
 int main(int argc, char const *argv[])
 {
     char message[TAILLE_MAX];
-    char messageChiffre[TAILLE_MAX]  = "Iwpak ydeywjk .";
+    char messageChiffre[TAILLE_MAX];//  = "Iwpak ydeywjk .";
     dechiffrementCesar(message, 802, messageChiffre);
     printf("%s\n", message);
     return 0;
