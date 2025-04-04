@@ -8,19 +8,20 @@ SRC = main.c chiffrement.c dechiffrement.c misc.c verification.c
 OBJ = $(SRC:.c=.o)
 
 # Compilateur et options
-CC = gcc
-CFLAGS = -Wall -Wextra -std=c11
+# CC = gcc
+# CFLAGS = -Wall -Wextra -std=c11
 
 # Règle par défaut
 all: $(EXEC)
 
-# Règle de l'exécutable
+# Règle de l'
+# $(CC) $(CFLAGS) -o $@ $^
 $(EXEC): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
-
+	gcc -o $@ $^
 # Règle de compilation des fichiers .c en .o
+# $(CC) $(CFLAGS) -c $< -o $@
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	gcc -c $< -o $@
 
 # Nettoyage des fichiers objets et de l'exécutable
 clean:
