@@ -43,12 +43,16 @@ extern int aGarder[5];
 /* Fonction de vérification de la validité du message entré par l'utilisateur. Prend en argument
 le message et renvoie 0 si le message contient un caractère spécial, 1 sinon.*/
 int verificationMessage(char message[]) {
-    for (int i=0; i < strlen(message); i++) { 
-        if ((message[i] < 65 || message[i] > 90 && message[i] < 97 || message[i] > 122) && !(isIn(message[i], aGarder, strlen(message)))) {
-            return 0;
+    for (int i = 0; message[i] != '\0'; i++) {
+        char c = (unsigned char)message[i];
+        
+        if (!((c >= 'A' && c <= 'Z') ||
+              (c >= 'a' && c <= 'z') ||
+              isIn(c, aGarder, strlen(message)))) {
+            return 1; // Message invalide
         }
     }
-    return 1;
+    return 0; // Message valide
 }
 
 
