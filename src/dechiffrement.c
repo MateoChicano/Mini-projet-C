@@ -35,28 +35,28 @@ extern int aGarder[5]; // ponctuation et espace
 
 /* Fonction de chiffrement César qui prend en argument le message à chiffrer, la clé de chiffrement
 et le message une fois chiffré.*/
-void dechiffrementCesar(char message[], int cle, char messageChiffre[]) {
+void dechiffrementCesar(char messageChiffre[], int cle, char messageDechiffre[]) {
     int i =0;
     for (i; i<strlen(messageChiffre); i++) {
         char caractere = messageChiffre[i];
         if (isIn(caractere, aGarder, 5) == 0) {
             if (caractere >= 'A' && caractere <= 'Z') {
-                message[i] = 'A' + (caractere - 'A' - cle) % 26;
+                messageDechiffre[i] = 'A' + (caractere - 'A' - cle) % 26;
             } else if (caractere >= 'a' && caractere <= 'z') {
-                message[i] = 'a' + (caractere - 'a' - cle) % 26;
+                messageDechiffre[i] = 'a' + (caractere - 'a' - cle) % 26;
             }
-            if (message[i] < 'a' && message[i]> 'Z' || message[i] < 'A') {
-                message[i] = message[i] + 26;
+            if (messageDechiffre[i] < 'a' && messageDechiffre[i]> 'Z' || messageDechiffre[i] < 'A') {
+                messageDechiffre[i] = messageDechiffre[i] + 26;
             }
         } else {
             // Les espaces et la ponctuation sont écrits tels quels
-            message[i] = caractere;
+            messageDechiffre[i] = caractere;
         }
 }
-message[i] = '\0';
+messageDechiffre[i] = '\0';
 }
 
-void dechiffrementVigenere(char message[], char cle[], char messageChiffre[]) {
+void dechiffrementVigenere(char messageChiffre[], char cle[], char messageDechiffre[]) {
     int i = 0;
     char tampon[strlen(messageChiffre)];
     char messageee[TAILLE_MAX];
@@ -68,7 +68,7 @@ void dechiffrementVigenere(char message[], char cle[], char messageChiffre[]) {
         //printf("avant :%s", tampon);
         dechiffrementCesar(messageee, nvCle, tampon);
         //printf("    apres :%s\n", messageee);
-        strcat(message, messageee);
+        strcat(messageDechiffre, messageee);
     }
-    message[i] = '\0';
+    messageDechiffre[i] = '\0';
 }
