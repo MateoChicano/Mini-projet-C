@@ -51,3 +51,8 @@ https://github.com/MateoChicano/Mini-projet-C
 `int verificationCle(char cle[], int choix_algo)`
   - Paramètres : la clé à vérifier et le numéro de choix de l'algorithme.
   - Renvoie : 0 si la clé est valide, 1 sinon.
+
+## Exécution
+
+Dans un terminal et dans le dossier du projet, exécuter `make` puis `./main`. Enfin, suivre les
+instructions.
