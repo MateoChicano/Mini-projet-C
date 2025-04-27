@@ -28,8 +28,8 @@
 #include <string.h>
 #include <ctype.h>
 #define TAILLE_MAX 1000
-#include "chiffrement.h"
-#include "dechiffrement.h"
+#include "../include/chiffrement.h"
+#include "../include/dechiffrement.h"
 //#include "chiffrement.c"
 #include "misc.c"
 
@@ -43,6 +43,7 @@ int main(int argc, char const *argv[])
     printf("%s\n", message);
     return 0;
 }
+
 /* Fonction de chiffrement César qui prend en argument le message à chiffrer, la clé de chiffrement
 et le message une fois chiffré.*/
 void dechiffrementCesar(char message[], int cle, char messageChiffre[]) {
