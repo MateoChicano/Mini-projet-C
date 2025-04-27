@@ -72,10 +72,10 @@ void chiffrementVigenere(char message[], char cle[], char messageChiffre[]) {
 
         //strcpy(messageChiffre, "");
         tampon[0] = message[i];
-        printf("avant :%s", tampon);
+        //printf("avant :%s", tampon);
         int nvCle = tolower(cle[i % strlen(cle)]) - 96;
         chiffrementCesar(tampon, nvCle, messageee);
-        printf("    apres :%s\n", messageChiffre);
+        //printf("    apres :%s\n", messageChiffre);
         strcat(messageChiffre, messageee );
     }
     messageChiffre[i] = '\0';
