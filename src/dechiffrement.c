@@ -28,7 +28,7 @@
 #include <string.h>
 #include <ctype.h>
 #define TAILLE_MAX 1000
-#include "../include/chiffrement.h"
+//#include "../include/chiffrement.h"
 #include "../include/dechiffrement.h"
 //#include "chiffrement.c"
 #include "misc.c"
@@ -37,10 +37,11 @@ int aGarder[5] = {32, 33, 44, 46, 63}; // ponctuation et espace
 
 int main(int argc, char const *argv[])
 {
-    char message[TAILLE_MAX];
-    char messageChiffre[TAILLE_MAX]; //= "Iwpak ydeywjk .";
+    char message[TAILLE_MAX] = "";
+    char messageChiffre[TAILLE_MAX] = "Mwfbu Sgfbpc."; //'Lucas Recanz.' crypté en vigenere
 
-    dechiffrementCesar(message, 802, messageChiffre);
+    //dechiffrementCesar(message, 802, messageChiffre);
+    dechiffrementVigenere(message, "abc", messageChiffre);
     printf("%s\n", message);
     return 0;
 }
@@ -57,7 +58,7 @@ void dechiffrementCesar(char message[], int cle, char messageChiffre[]) {
             } else if (caractere >= 'a' && caractere <= 'z') {
                 message[i] = 'a' + (caractere - 'a' - cle) % 26;
             }
-            if (message[i] < 'a' || message[i] < 'A') {
+            if (message[i] < 'a' && message[i]> 'Z' || message[i] < 'A') {
                 message[i] = message[i] + 26;
             }
         } else {
@@ -66,4 +67,21 @@ void dechiffrementCesar(char message[], int cle, char messageChiffre[]) {
         }
 }
 message[i] = '\0';
+}
+
+void dechiffrementVigenere(char message[], char cle[], char messageChiffre[]) {
+    int i = 0;
+    char tampon[strlen(messageChiffre)];
+    char messageee[TAILLE_MAX];
+
+    for (i; i<strlen(messageChiffre); i++) {
+        tampon[0] = messageChiffre[i];
+        int nvCle = tolower(cle[i % strlen(cle)]) - 96;
+        //printf("cle : %d\n", nvCle);
+        //printf("avant :%s", tampon);
+        dechiffrementCesar(messageee, nvCle, tampon);
+        //printf("    apres :%s\n", messageee);
+        strcat(message, messageee);
+    }
+    message[i] = '\0';
 }

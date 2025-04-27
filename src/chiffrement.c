@@ -35,7 +35,7 @@ int aGarder[5] = {32, 33, 44, 46, 63}; // ponctuation et espace
 
 int main(int argc, char const *argv[])
 {
-    char message[TAILLE_MAX];// =  "Lucas Recanz.";
+    char message[TAILLE_MAX] =  "Lucas Recanz.";
     char messageChiffre[TAILLE_MAX] = "";
     //chiffrementCesar(message, 2, messageChiffre);
     chiffrementVigenere(message, "abc", messageChiffre);
@@ -66,8 +66,8 @@ void chiffrementCesar(char message[], int cle, char messageChiffre[]) {
 void chiffrementVigenere(char message[], char cle[], char messageChiffre[]) {
     // converti chaque lettre en une clé et appeler cesar pour chaque caractère ?
     int i = 0;
-        char tampon[strlen(message)];
-        char messageee[TAILLE_MAX]; //stocke les caracteres cryptés un à un
+    char tampon[strlen(message)];
+    char messageee[TAILLE_MAX]; //stocke les caracteres cryptés un à un
     for (i; i<strlen(message); i++) {
 
         //strcpy(messageChiffre, "");
