@@ -35,17 +35,6 @@
 
 int aGarder[5] = {32, 33, 44, 46, 63}; // ponctuation et espace
 
-int main(int argc, char const *argv[])
-{
-    char message[TAILLE_MAX] = "";
-    char messageChiffre[TAILLE_MAX] = "Mwfbu Sgfbpc."; //'Lucas Recanz.' crypté en vigenere
-
-    //dechiffrementCesar(message, 802, messageChiffre);
-    dechiffrementVigenere(message, "abc", messageChiffre);
-    printf("%s\n", message);
-    return 0;
-}
-
 /* Fonction de chiffrement César qui prend en argument le message à chiffrer, la clé de chiffrement
 et le message une fois chiffré.*/
 void dechiffrementCesar(char message[], int cle, char messageChiffre[]) {

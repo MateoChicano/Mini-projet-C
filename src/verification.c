@@ -39,21 +39,35 @@
 #define TAILLE_MAX 1000 //taille max de la chaîne de caractère
 int aGarder[5] = {32, 33, 44, 46, 63};
 
-void main () {
-    char message[TAILLE_MAX];
-    printf("Entrez le message à vérifier : ");
-    fgets(message, TAILLE_MAX, stdin);//On entre un message
-    message[strcspn(message, "\n")] = 0; //On enlève le retour à la ligne
-    printf("%d\n", verification(message));
-}
-
 /* Fonction de vérification de la validité du message entré par l'utilisateur. Prend en argument
 le message et renvoie 0 si le message contient un caractère spécial, 1 sinon.*/
-int verification (char message[]) {
+int verificationMessage(char message[]) {
     for (int i=0; i < strlen(message); i++) { 
         if ((message[i] < 65 || message[i] > 90 && message[i] < 97 || message[i] > 122) && !(isIn(message[i], aGarder, strlen(message)))) {
             return 0;
         }
     }
     return 1;
+}
+
+
+int verificationCle(char cle[], int choix_algo) {
+    if (choix_algo == 1) {
+        // Clé pour César : doit être un nombre entier
+        for (int i=0; cle[i] != '\0'; i++) {
+            if (!isdigit((unsigned char)cle[i])) {
+                return 1;
+            }
+        }
+    } else if (choix_algo == 2) {
+        // Clé pour Vigenère : doit être uniquement des lettres
+        for (int i = 0; cle[i] != '\0'; i++) {
+            if (!isalpha((unsigned char)cle[i])) {
+                return 1;
+            }
+        }
+    } else {
+        return 1;
+    }
+    return 0;
 }
