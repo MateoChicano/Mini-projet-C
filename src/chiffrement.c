@@ -28,16 +28,17 @@
 #include <string.h>
 #include <ctype.h>
 #define TAILLE_MAX 1000
-#include "chiffrement.h"
+#include "../include/chiffrement.h"
 #include "misc.c"
 
 int aGarder[5] = {32, 33, 44, 46, 63}; // ponctuation et espace
 
 int main(int argc, char const *argv[])
 {
-    char message[TAILLE_MAX];// = "Lucas Recanz.";
-    char messageChiffre[TAILLE_MAX];
-    chiffrementVigenere(message, "yahou", messageChiffre);
+    char message[TAILLE_MAX];// =  "Lucas Recanz.";
+    char messageChiffre[TAILLE_MAX] = "";
+    //chiffrementCesar(message, 2, messageChiffre);
+    chiffrementVigenere(message, "abc", messageChiffre);
     printf("%s\n", messageChiffre);
     return 0;
 }
@@ -65,14 +66,17 @@ void chiffrementCesar(char message[], int cle, char messageChiffre[]) {
 void chiffrementVigenere(char message[], char cle[], char messageChiffre[]) {
     // converti chaque lettre en une clé et appeler cesar pour chaque caractère ?
     int i = 0;
+        char tampon[strlen(message)];
+        char messageee[TAILLE_MAX]; //stocke les caracteres cryptés un à un
     for (i; i<strlen(message); i++) {
-        char caractere[TAILLE_MAX];
-        strcpy(caractere, message);
-        char nouveauCaractere[1] = "";
+
+        //strcpy(messageChiffre, "");
+        tampon[0] = message[i];
+        printf("avant :%s", tampon);
         int nvCle = tolower(cle[i % strlen(cle)]) - 96;
-        printf("%d\n", nvCle);
-        chiffrementCesar(caractere, nvCle, nouveauCaractere);
-        strcat(messageChiffre, nouveauCaractere);
+        chiffrementCesar(tampon, nvCle, messageee);
+        printf("    apres :%s\n", messageChiffre);
+        strcat(messageChiffre, messageee );
     }
     messageChiffre[i] = '\0';
 }
