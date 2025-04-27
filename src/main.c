@@ -6,7 +6,7 @@
 *                                                                             *
 *******************************************************************************
 *                                                                             *
-*  Intitulé : dfichier main, avec le menu                                     *
+*  Intitulé : fichier main, avec le menu                                      *
 *                                                                             *
 *******************************************************************************
 *                                                                             *
@@ -33,6 +33,7 @@
 
 #define MAX_MESSAGE_LEN 1024
 #define MAX_KEY_LEN 256
+
 
 int main(void) {
     int choix_action = 0;

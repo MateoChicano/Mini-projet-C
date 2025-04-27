@@ -28,12 +28,10 @@
 #include <string.h>
 #include <ctype.h>
 #define TAILLE_MAX 1000
-//#include "../include/chiffrement.h"
 #include "../include/dechiffrement.h"
-//#include "chiffrement.c"
-#include "misc.c"
+#include "misc.h"
 
-int aGarder[5] = {32, 33, 44, 46, 63}; // ponctuation et espace
+extern int aGarder[5]; // ponctuation et espace
 
 /* Fonction de chiffrement César qui prend en argument le message à chiffrer, la clé de chiffrement
 et le message une fois chiffré.*/

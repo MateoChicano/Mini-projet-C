@@ -20,7 +20,7 @@
 *                                                                             *
 *******************************************************************************
 *                                                                             *
-*  Nom du fichier :  verification.c                                           *
+*  Nom du fichier :  verification.c                                             *
 *                                                                             *
 ******************************************************************************/
 
@@ -33,11 +33,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "verification.h"
-#include "misc.c"
+#include "misc.h"
 
 #define TAILLE_MAX 1000 //taille max de la chaîne de caractère
-int aGarder[5] = {32, 33, 44, 46, 63};
+extern int aGarder[5];
 
 /* Fonction de vérification de la validité du message entré par l'utilisateur. Prend en argument
 le message et renvoie 0 si le message contient un caractère spécial, 1 sinon.*/

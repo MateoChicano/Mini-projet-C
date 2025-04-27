@@ -15,6 +15,11 @@ Matéo Chicano-Quéralta
 
 Lucas Récan
 
+## Lien du dépot
+
+https://github.com/MateoChicano/Mini-projet-C
+
+
 ## Documentation
 
 ### Le fichier chiffrement.c contient les fonctions suivantes :
@@ -39,3 +44,10 @@ Lucas Récan
 
 ### Le fichier verification.c contient les fonctions suivantes :
 
+`int verificationMessage(char message[])`
+  - Paramètres : le message à vérifier
+  - Renvoie : 0 si le message est valide, 1 sinon.
+
+`int verificationCle(char cle[], int choix_algo)`
+  - Paramètres : la clé à vérifier et le numéro de choix de l'algorithme.
+  - Renvoie : 0 si la clé est valide, 1 sinon.

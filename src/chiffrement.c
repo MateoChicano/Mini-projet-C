@@ -29,7 +29,7 @@
 #include <ctype.h>
 #define TAILLE_MAX 1000
 #include "../include/chiffrement.h"
-#include "misc.c"
+#include "misc.h"
 
 int aGarder[5] = {32, 33, 44, 46, 63}; // ponctuation et espace
 
