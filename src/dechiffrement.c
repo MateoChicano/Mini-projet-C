@@ -57,6 +57,7 @@ messageDechiffre[i] = '\0';
 }
 
 void dechiffrementVigenere(char messageChiffre[], char cle[], char messageDechiffre[]) {
+    strcpy(messageDechiffre, "");
     int i = 0;
     char tampon[strlen(messageChiffre)];
     char messageee[TAILLE_MAX];

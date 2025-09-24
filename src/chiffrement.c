@@ -56,6 +56,7 @@ void chiffrementCesar(char message[], int cle, char messageChiffre[]) {
 
 void chiffrementVigenere(char message[], char cle[], char messageChiffre[]) {
     // converti chaque lettre en une clé et appeler cesar pour chaque caractère ?
+    strcpy(messageChiffre, "");
     int i = 0;
     char tampon[strlen(message)];
     char messageee[TAILLE_MAX]; //stocke les caracteres cryptés un à un
